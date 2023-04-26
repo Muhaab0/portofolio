@@ -1,0 +1,211 @@
+.admin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-top: 50px;
+    padding: 0 20px;
+}
+.adminContainer {
+    background-color: #252A2E;
+    width: 1000px;
+    margin: 80px 0;
+    border-radius: 10px;
+    border: white 1px solid;
+}
+.adminContainer h2 {
+    padding: 20px;
+    text-align: center;
+}
+
+.adminFlex {
+    height: 80%;
+    display: flex;
+    gap: 10px;
+    padding: 0px 30px;
+    padding-bottom: 40px;
+}
+
+.Left {
+    flex:2;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.Left ul {
+    padding: 10px;
+}
+
+.Left ul li {
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.Left ul li:hover {
+    background-color: #1cb69847;
+}
+
+
+.Right {
+    flex: 5;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 20px 20px;
+    position: relative;
+    padding-bottom: 70px;
+}
+
+.backIcon {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    border: 1px solid;
+    padding: 1px 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formHeader {
+    margin-top: 15px;
+}
+
+.item{
+    background-color: #1cb69847;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+.item img {
+    width:50px;
+}
+.item .desc {
+    max-width: 150px;
+    overflow: hidden;
+    padding-right: 20px;
+    max-height: 40px;
+}
+
+.gap5 {
+    gap:5px
+}
+.itemEdit {
+    border-radius: 5px;
+    width: 60%;
+    margin: auto;
+}
+
+.inputContainer {
+    width: 280px;
+}
+
+
+.formUpdate {
+    margin-top: 40px;
+}
+
+.itemEdit input ,textarea{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+    border: solid 1px white;
+    outline: none;
+    width: 250px;
+}
+
+
+
+.itemEdit .update {
+    cursor: pointer;
+}
+.itemEdit input:disabled {
+    background-color: #ffc5c524;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+.EditImg Img {
+    width: 150px;
+    margin-top: 40px;
+}
+
+.gap20 {
+    gap:20px
+}
+
+.gap50 {
+    gap:110px
+}
+
+.registerBut {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    margin-bottom: 10px;
+    width: 20%;
+    
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.wrap {
+
+    flex-wrap: wrap;
+}
+
+.NavClass {
+    background-color:#1cb69847;
+}
+
+@media(max-width:900px) {
+    .updateform  {
+        flex-direction: column;
+    }
+    .EditImg {
+        margin: auto;
+    }
+    .itemEdit input, textarea {
+        width: 200px;
+    }
+}
+
+@media(max-width:800px) {
+
+}
+
+@media (max-width:609px) {
+    
+ .adminFlex {
+    flex-direction: column;
+    height: unset;
+ }
+ .registerBut {
+    width: 40%;
+ }
+
+ .updateform {
+        flex-direction: column;
+        text-align:center;
+    }    
+}
+
+
+
+@media(max-width:1060px) {
+    .adminContainer {
+        padding: 0 0 20px 0;
+    }
+}

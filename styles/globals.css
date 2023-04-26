@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Work Sans';
+  padding: 0;
+  margin: 0;
+  
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer
+}
+
+li  {
+    text-decoration: none;
+    list-style: none;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: #1e2326;
+}
+
+
+
+
+@media screen and (max-width:1030px){
+  nav{
+      display: none;
+  }
+  .nav-responsive{
+      display: block!important;
+  }
+  nav.responsive{
+      position: absolute;
+      right: 0;
+      top: 75px;
+      background-color: #252A2E;
+      width: 180px;
+  }
+  nav.responsive ul{
+      display: block !important;
+  }
+  nav.responsive ul li{
+      border-bottom: 1px solid #fff;
+      padding: 10px 0;
+  }
+}
+@media screen and (max-width:700px){
+  .sobremi .fila{
+      display: block;
+  }
+  .skills .fila{
+      display: block!important;
+  }
+  .skills .fila .col,.sobremi .fila .col{
+    padding:0!important;
+      width: 85%!important;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  .skills .fila .col .skill {
+    width: inherit;
+  }
+
+  .contenedor-intereses {
+    justify-content: center;
+}
+
+  .skills .fila .col .barra-skill{
+      width: 100%;
+  }
+
+  .curriculum .fila{
+      display: block;
+  }
+  .curriculum .fila .col{
+      width: 90%;
+  }
+  .curriculum .fila .derecha{
+      margin-left: 20px;
+  }
+
+  .portfolio .galeria{
+      display: block;
+      width: 100%;
+  }
+  .portfolio .galeria .proyecto{
+      max-width: 100%;
+  }
+  .portfolio .galeria .proyecto img{
+      width: 100%;
+  }
+  .contacto .fila{
+      display: block!important;
+  }
+  .contacto .fila .col{
+      width: 100%;
+  }
+  .contacto .contenido-seccion {
+    max-width: 1100px;
+    margin: auto;
+}
+.contacto .col .info {
+    margin-top: 80px;
+}
+    .contacto {
+        height: 1000px;
+    }
+}
+
+@media (max-width:600px) {
+    .NavRightSection {
+        gap: 10px!important;
+    }
+    .LoginBut {
+        padding: 5px 5px;
+    }
+    .nav-responsive {
+        padding: 2px 5px;
+    }
+    .contenedor-header header .logo a {
+        font-size: 30px;
+    }
+    .contenedor-header header {
+        padding: 15px 5px;
+    }
+    .inicio .contenido-banner img {
+        width: 75%;
+        margin: auto;
+        height: 225px;
+        margin-top: 45px!important;
+    }
+    
+}
+
+.portfolioBut {
+    padding: 5px 10px;
+    background-color: #1e2326;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+}
+.portfolioBut:hover {
+    background-color: #1CB698;
+}
+
+
+.error {
+    color: #85162aeb;
+    text-align: center;
+    width: 100%;
+
+}
+
+
+
+
+.block {
+    display: block;
+}
+
+.Loading  {
+    top: 50%;
+    left: 50%;
+    font-size: 60px;
+    width: 100%;
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.gap10 {
+    gap: 5px;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+.justifiy-between  {
+    justify-content: space-between;
+}
