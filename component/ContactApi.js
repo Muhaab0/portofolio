@@ -13,7 +13,7 @@ export default function ContactApi() {
   const [newPhone, setNewPhone] = useState("");
   const [newMessage, setNewMessage] = useState("");
     const { data , isLoading , isError ,error,refetch} = useQuery("Contact", async () => {
-        return await axios.get("//localhost:4000/api/contact").then((res) => res.data);
+        return await axios.get("/me5a/api/contact").then((res) => res.data);
     });
 
 
@@ -29,7 +29,7 @@ export default function ContactApi() {
   const handleDelete = async (id) => {
     try {
       console.log(id);
-      await axios.delete(`//localhost:4000/api/contact/${id}`)
+      await axios.delete(`/me5a/api/contact/${id}`)
       refetch()
     } catch (error) {
       console.log(error);

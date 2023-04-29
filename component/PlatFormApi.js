@@ -7,7 +7,7 @@ import { ArrowBack } from '@mui/icons-material';
 
 export default function PlatFormApi() {
     const { data , isLoading , isError ,error ,refetch} = useQuery("platforms", async () => {
-        return await axios.get("//localhost:4000/api/platform").then((res) => res.data);
+        return await axios.get("/me5a/api/platform").then((res) => res.data);
     });
     const [isShown, setIsShown] = useState(null);
     const [RegisterErrors, setRegisterError] = useState();
@@ -21,7 +21,7 @@ export default function PlatFormApi() {
     const handleDelete = async (id) => {
       try {
         console.log(id);
-        await axios.delete(`//localhost:4000/api/platform/${id}`)
+        await axios.delete(`/me5a/api/platform/${id}`)
         refetch()
       } catch (error) {
         console.log(error);
@@ -38,7 +38,7 @@ export default function PlatFormApi() {
         whatsup: registerWhatsup
       }
       try {
-        await axios.post("//localhost:4000/api/platform",formData)
+        await axios.post("/me5a/api/platform",formData)
         setIsShown(null)
         setRegisterLoading(false)
         refetch()

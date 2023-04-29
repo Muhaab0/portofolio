@@ -2,13 +2,16 @@ import React from 'react'
 import { useQuery } from 'react-query';
 import { CircularProgress } from '@mui/material'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Head from 'next/head';
+
+console.log(process.env.apiLink);
 
 export default function Portofolio() {
   const { data , isLoading , isError ,error} = useQuery("portofolio", async () => {
-    return await axios.get("//localhost:4000/api/portofolio").then((res) => res.data);
+    return await axios.get("me5a/api/portofolio").then((res) => res.data);
 });
+
+
   return (
     <>
     <Head>
@@ -19,7 +22,7 @@ export default function Portofolio() {
             <h2>PORTFOLIO</h2>
             <div className="galeria">
             {isLoading ? <div className='Loading'><CircularProgress/> </div>  : "" }
-            {isError? <div className='error'>{error}</div>:""}
+            {isError? <div className='error'>{error.message}</div>:""}
               {
                 data?.map((item)=>(
                   <div key={item._id} >

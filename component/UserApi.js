@@ -23,11 +23,12 @@ export default function UserApi() {
   const [registerName, setRegisterName] = useState("");
   const [UpdateError, setUpdateError] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
+
   const { data, isLoading, isError, error, refetch } = useQuery(
     "Users",
     async () => {
       return await axios
-        .get("//localhost:4000/api/user")
+        .get("/me5a/api/user")
         .then((res) => res.data);
     }
   );
@@ -36,7 +37,7 @@ export default function UserApi() {
       setRegisterLoading(true);
       const EditFunction = async () => {
         try {
-          const reqdata = await fetch(`//localhost:4000/api/user/${id}`);
+          const reqdata = await fetch(`/me5a/api/user/${id}`);
           const res = await reqdata.json();
           setuserEdit(await res);
           setRegisterLoading(false);
@@ -60,7 +61,7 @@ export default function UserApi() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`//localhost:4000/api/user/${id}`, userEdit)
+      await axios.put(`/me5a/api/user/${id}`, userEdit)
       setIsShown(null)
       refetch()
     } catch (err) {
@@ -76,7 +77,7 @@ export default function UserApi() {
     setRegisterLoading(true);
     try {
       console.log(id);
-      await axios.delete(`//localhost:4000/api/user/${id}`);
+      await axios.delete(`/me5a/api/user/${id}`);
       setRegisterLoading(false);
       refetch();
     } catch (error) {
@@ -96,7 +97,7 @@ export default function UserApi() {
     };
     try {
       const res = await axios.post(
-        "//localhost:4000/api/user/register",
+        "/me5a/api/user/register",
         formData
       );
       setIsShown(null);

@@ -2,13 +2,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link'
 import React, { useContext, useEffect, useState } from 'react'
 import axios from "axios"
-import { Avatar } from '@mui/material';
+import { Avatar, CircularProgress } from '@mui/material';
 import Muhaab from "../public/assets/Muhaab10.jpg"
 import { useAppContext } from '@/Context/Auth.Context';
 
 export default function NavBar() {
-    const {error , login , logout , userData , userToken} = useAppContext()
-
+    const {error , login , logout , userData , userToken , isLoading} = useAppContext()
     
     const [isClicked, setisClicked] = useState(false)
     const [navOpen, setNavOpen] = useState(false)
@@ -60,14 +59,20 @@ export default function NavBar() {
 
             <div className='NavRightSection'>
             {!userToken ? (
-                <button className="LoginBut" onClick={()=>setisClicked(!isClicked)}>Login</button>
+                <>
+                  { isLoading ? <div className='Loading'><CircularProgress/> </div>  : 
+                <button disabled={isLoading} className="LoginBut" onClick={()=>setisClicked(!isClicked)}>Login</button>
+            }
+            </>
                 ) : 
                     <>
                 <div className='User'>
                 <Avatar alt="Muhaab" src={Muhaab.src} />
                 <p>{userData.userName}</p> 
                 </div>
-                    <button className="LoginBut" onClick={()=>logout()}>Login Out</button>
+                    { isLoading ? <div className='Loading'><CircularProgress/> </div>  : 
+                    <button disabled={isLoading} className="LoginBut" onClick={()=>logout()}>Login Out</button>
+     }
                 </>
                 }
 
@@ -83,8 +88,8 @@ export default function NavBar() {
                 <form onSubmit={(e)=>login(formData,e)} >
                     <input defaultValue={email} placeholder='Email' type="email" onChange={(e)=> setEmail(e.target.value)} required />
                     <input defaultValue={password} placeholder='Password' type="password" onChange={(e)=> setPassword(e.target.value)} required />
-                    <input type="submit" value="Login" className="submit" />
-                    {error ? (<div className='error'>{error}</div>) : ""}
+                    <input type="submit" value="Login" className="submit" disabled={isLoading} />
+                    {error ? (<div className='error'>{error}</div>) : ""}                    
                 </form> 
                 <div className='LoginClose' onClick={()=>setisClicked(false)}>
                     <p>Close</p>

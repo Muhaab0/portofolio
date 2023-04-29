@@ -6,14 +6,15 @@ import axios from 'axios';
 import { CircularProgress } from '@mui/material';
 
 export default function Hero() {
+
   const { data, isLoading, isError, error, refetch } = useQuery(
     "platform",
     async () => {
       return await axios
-        .get("//localhost:4000/api/platform")
-        .then((res) => res.data);
+      .get("me5a/api/platform")
+      .then((res) => res.data);
     })
-
+    
 
   return (
 <section id="inicio" className="inicio">
@@ -25,7 +26,8 @@ export default function Hero() {
             <h1 style={{fontSize:"36px"}}>MUHAAB MEDHAT</h1>
             <h2>Software Engineer - Full Stck Developer</h2>
             {isLoading ? <div className='Loading'><CircularProgress/> </div>  : "" }
-            {isError? <div className='error'>{error}</div>:""}
+            {isError? <div className='error'>{error.message}</div>:""}
+            
             {data?.map((dat)=>(
             <div key={dat._id} className="redes">
                <a href={`${dat.facebook}`} target="_blank"><Facebook /></a>

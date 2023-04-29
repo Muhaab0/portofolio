@@ -8,7 +8,7 @@ import Portofolio from '@/pages/portofolio';
 
 export default function PortofolioApi() {
   const { data , isLoading , isError ,error , refetch} = useQuery("Portofolio", async () => {
-      return await axios.get("//localhost:4000/api/portofolio").then((res) => res.data);
+      return await axios.get("me5a/api/portofolio").then((res) => res.data);
   });
   const [isShown, setIsShown] = useState(null);
   const [RegisterErrors, setRegisterError] = useState();
@@ -44,7 +44,7 @@ export default function PortofolioApi() {
       setRegisterLoading(true)
       try {
         console.log(id);
-        await axios.delete(`//localhost:4000/api/portofolio/${id}`)
+        await axios.delete(`me5a/api/portofolio/${id}`)
         setRegisterLoading(false)
         refetch()
       } catch (error) {
@@ -68,7 +68,7 @@ export default function PortofolioApi() {
     try {
       const res = await axios({
         method: "post",
-        url: "//localhost:4000/api/portofolio",
+        url: "/me5a/api/portofolio",
         data: formData,
         "content-type": "multipart/form-data",
       });
@@ -92,7 +92,7 @@ export default function PortofolioApi() {
       const EditFunction = async () => {
 
         try {
-          const reqdata = await fetch(`//localhost:4000/api/portofolio/${id}`);
+          const reqdata = await fetch(`/me5a/api/portofolio/${id}`);
           const res = await reqdata.json();
           setPortofolioEdit(await res);
           setRegisterLoading(false);
@@ -115,13 +115,13 @@ export default function PortofolioApi() {
   const handleUpdate = async (e) => {
     e.preventDefault();
 
-    await axios.put(`//localhost:4000/api/portofolio/${id}`, PortofolioEdit)
+    await axios.put(`/me5a/api/portofolio/${id}`, PortofolioEdit)
     setIsShown(null)
     refetch()
     if (file) {      
       const formData = new FormData();
       formData.append("file", file);
-      await axios.put(`//localhost:4000/api/portofolio/${id}`, formData)
+      await axios.put(`/me5a/api/portofolio/${id}`, formData)
       setIsShown(null)
       refetch()
     }
@@ -134,7 +134,7 @@ export default function PortofolioApi() {
     <>
     {isShown === null  && (
       <>
-      {isError? <div className='error'>{error?.message}</div>:""}
+      {isError? <div className='error'>{error?.message.message}</div>:""}
       { isLoading ? <div className='Loading'><CircularProgress/> </div>  : "" }
       <button className='LoginBut registerBut' onClick={()=>setIsShown(false)}>Add New</button>
     <div className='items flex gap10 column'>

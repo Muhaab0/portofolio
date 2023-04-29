@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Email, LocationOn, Phone , Send } from '@mui/icons-material'
-import map from "../public/assets/map.png"
 import { CircularProgress } from '@mui/material'
 import axios from 'axios'
 import Head from 'next/head'
@@ -23,7 +22,7 @@ export default function Contact() {
           message: message
         }
         try {
-          const res = await axios.post("//localhost:4000/api/contact",formData)
+          const res = await axios.post("me5a/api/contact",formData)
           setRegisterLoading(false)
           setRegisterError("Your Message has been sent")
         } catch (error) {

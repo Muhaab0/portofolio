@@ -8,7 +8,7 @@ export default function Footer() {
     "platforme",
     async () => {
       return await axios
-        .get("//localhost:4000/api/platform")
+        .get("me5a/api/platform")
         .then((res) => res.data);
     })
 
@@ -19,22 +19,22 @@ export default function Footer() {
         <KeyboardDoubleArrowUp />
     </a>
             {isLoading ? <div className='Loading'><CircularProgress/> </div>  : "" }
-            {isError? <div className='error'>{error}</div>:""}
+            {isError? <div className='error'>{error.message}</div>:""}
     {data?.map((dat)=>(
     <div key={dat._id} className="redes">
-      <a href={`{${dat?.facebook}}`} target="_blank">
+      <a href={`${dat?.facebook}`} target="_blank">
         <Facebook />
       </a>
-      <a href={`{${dat.linkedin}}`} target="_blank">
+      <a href={`${dat.linkedin}`} target="_blank">
         <LinkedIn />
       </a>
-      <a href={`{${dat.github}}`} target="_blank">
+      <a href={`${dat.github}`} target="_blank">
         <WhatsApp />
       </a>
       <a href='https://www.twitter.com' target="_blank">
         <Twitter />
       </a>
-      <a href={`{${dat.whatsup}}`} target="_blank">
+      <a href={`${dat.whatsup}`} target="_blank">
         <GitHub />
       </a>
         

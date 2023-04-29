@@ -18,15 +18,17 @@ export const AuthProvider = ({children}) => {
         e.preventDefault()
         setIsLoading(true);
         try {
-            const res = await axios.post("//localhost:4000/api/user/login",formData)
+            const res = await axios.post("me5a/api/user/login",formData)
             setUserData(res.data)
             setUserToken(res.data.token);
             localStorage.setItem("userData", JSON.stringify(userData))
             localStorage.setItem("userToken", userToken)
+            setIsLoading(false)
         } catch (error) {
             console.log(error);
             console.log(error?.response?.data.message);
             setError(error.response?.data.message)
+            setIsLoading(false)
         }
 
         setIsLoading(false);
@@ -44,8 +46,9 @@ export const AuthProvider = ({children}) => {
     }
 
     const isLoggedIn =  () => {
+        setIsLoading(true)
         try {
-            setIsLoading(true)
+
             let userData =  localStorage.getItem("userData");
             let userToken =  localStorage.getItem("userToken");
             userData = JSON.parse(userData);
@@ -54,11 +57,12 @@ export const AuthProvider = ({children}) => {
                 setUserData(userData)
                 setUserToken(userToken)
             }
+            setIsLoading(false)
         } catch (error) {
             console.log(`isLogged in error ${error}`);
             setIsLoading(false)
         }
-
+        setIsLoading(false)
     }
 
 
